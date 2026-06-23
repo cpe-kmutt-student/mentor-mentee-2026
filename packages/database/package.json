@@ -1,10 +1,12 @@
 {
 	"name": "@repo/database",
 	"version": "0.0.0",
+	"main": "./dist/client.js",
+	"types": "./dist/client.d.ts",
 	"exports": {
 		".": {
-			"types": "./dist/src/client.d.ts",
-			"default": "./dist/src/client.js"
+			"types": "./dist/client.d.ts",
+			"default": "./dist/client.js"
 		}
 	},
 	"scripts": {
@@ -12,7 +14,7 @@
 		"db:migrate:dev": "prisma migrate dev && prisma generate",
 		"db:push": "prisma db push",
 		"db:seed": "tsx src/seed.ts",
-		"dev": "tsup src/* --watch",
+		"dev": "tsup src/* --watch --dts --external ../generated/client",
 		"build": "tsc",
 		"format": "prisma format",
 		"generate": "prisma generate",
@@ -29,7 +31,7 @@
 		"rimraf": "^6.1.3",
 		"tsup": "^8.5.1",
 		"tsx": "^4.22.4",
-		"typescript": "^6.0.3"
+		"typescript": "^5.9.2"
 	},
 	"dependencies": {
 		"@repo/config": "workspace:*",
