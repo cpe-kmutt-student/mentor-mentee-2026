@@ -1,4 +1,4 @@
 {
-  "$schema": "../../biome.json"
+	"root": false,
+	"$schema": "../../biome.json"
 }
-
