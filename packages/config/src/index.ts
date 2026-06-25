@@ -9,11 +9,19 @@ const envDate = z.iso.datetime({ offset: true }).transform((v) => new Date(v));
 const envPort = z.coerce.number().int().positive().min(1).max(65535);
 
 const envSchema = z.object({
-	API_PORT: envPort,
 	NODE_ENV: z.string().min(1),
+
+	API_PORT: envPort,
 	API_DATABASE_URL: z.url(),
 	API_ALLOW_ORIGIN: z.string().transform((v) => v.split(",")),
 	API_DOMAIN: z.string().min(1),
+
+	API_BETTER_AUTH_SECRET: z.string().min(32),
+	API_BETTER_AUTH_URL: z.url(),
+
+	API_AUTH_MICROSOFT_CLIENT_ID: z.string().min(1),
+	API_AUTH_MICROSOFT_CLIENT_SECRET: z.string().min(1),
+	API_AUTH_MICROSOFT_TENANT_ID: z.string().min(1),
 });
 
 const result = envSchema.safeParse(process.env);
@@ -36,5 +44,14 @@ export const config = {
 		databaseUrl: parsedEnv.API_DATABASE_URL,
 		allowOrigins: env.API_ALLOW_ORIGIN,
 		domain: env.API_DOMAIN,
+		betterAuth: {
+			secret: env.API_BETTER_AUTH_SECRET,
+			baseUrl: env.API_BETTER_AUTH_URL,
+			microsoft: {
+				clientId: env.API_AUTH_MICROSOFT_CLIENT_ID,
+				clientSecret: env.API_AUTH_MICROSOFT_CLIENT_SECRET,
+				tenantId: env.API_AUTH_MICROSOFT_TENANT_ID,
+			},
+		},
 	},
 } as const;
