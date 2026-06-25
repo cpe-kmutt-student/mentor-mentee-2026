@@ -10,6 +10,87 @@ generator client {
   output = "../generated/client"
 }
 
+model FirstYearUser {
+  fyuser_uuid           String            @id @default(uuid())
+  fyuser_id             String            @unique
+  fyuser_firstname      String            @db.VarChar(50)
+  fyuser_lastname       String            @db.VarChar(50)
+  fyuser_email          String?           @db.VarChar(50)
+
+  fyquest               FirstYearQuest[]
+
+  created_at            DateTime          @default(now())
+  updated_at            DateTime          @updatedAt
+}
+
+model FirstYearQuest {
+  fyquest_id        Int                   @id @default(autoincrement())
+  fyquest_details   String                @db.Text
+
+  fyuser_uuid       String    
+  fyuser            FirstYearUser         @relation(fields: [fyuser_uuid], references: [fyuser_uuid])
+
+  created_at        DateTime              @default(now())
+  updated_at        DateTime              @updatedAt
+}
+
+model SecondYearUser {
+  syuser_uuid       String                @id @default(uuid())
+  syuser_id         String                @unique
+  syuser_firstname  String                @db.VarChar(50)
+  syuser_lastname   String                @db.VarChar(50)
+  syuser_email      String?               @db.VarChar(50)
+
+  sycontact         SecondYearContact[]
+
+  created_at        DateTime              @default(now())
+  updated_at        DateTime              @updatedAt
+}
+
+enum ContactPlatform {
+  instagram
+  line
+  facebook
+  roblox
+  discord
+  wechat
+  tiktok
+  whatsapp
+  twitter
+  threads
+  shopee
+  lazada
+  youtube
+  zoom
+  modlink
+  github
+  tinder
+  omi
+  bankpassword
+  atmcardnumber
+  phonenumber
+  email
+  telegraph
+  address
+  ipaddress
+  calculator
+  nokia3310
+  other
+}
+
+model SecondYearContact {
+  sycontact_id        Int                   @id @default(autoincrement())
+  sycontact_platform  ContactPlatform       @default(other)
+  sycontact_detail    String                @db.Text
+  
+  syuser_uuid       String      
+  syuser            SecondYearUser        @relation(fields: [syuser_uuid], references: [syuser_uuid])
+
+  created_at        DateTime              @default(now())
+  updated_at        DateTime              @updatedAt
+}
+
+
 model User {
   id              String    @id
   name            String
