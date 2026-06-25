@@ -5,6 +5,8 @@ import { config } from "@repo/config";
 import { prisma } from "@repo/database";
 
 export const auth = betterAuth({
+	secret: config.backend.betterAuth.secret,
+	baseURL: config.backend.betterAuth.baseUrl,
 	basePath: "/api/auth",
 	trustedOrigins: config.backend.allowOrigins,
 	database: prismaAdapter(prisma, {
@@ -29,10 +31,9 @@ export const auth = betterAuth({
 		// 	clientSecret: config.auth.googleClientSecret,
 		// },
 		microsoft: {
-			clientId: process.env.MICROSOFT_CLIENT_ID as string,
-			clientSecret: process.env.MICROSOFT_CLIENT_SECRET as string,
-			// Optional
-			tenantId: "common",
+			clientId: config.backend.betterAuth.microsoft.clientId,
+			clientSecret: config.backend.betterAuth.microsoft.clientSecret,
+			tenantId: config.backend.betterAuth.microsoft.tenantId,
 			authority: "https://login.microsoftonline.com", // Authentication authority URL
 			prompt: "select_account", // Forces account selection
 		},
