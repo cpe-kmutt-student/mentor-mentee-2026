@@ -5,9 +5,10 @@ import { PrismaModule } from "./core/prisma/prisma.module";
 import { AuthModule as BetterAuthModule } from "@thallesp/nestjs-better-auth";
 import { auth } from "@repo/auth/server";
 import { UtilsModule } from "./modules/utils/utils.module";
+import { FyQuestModule } from "./modules/fy-quest/fy-quest.module";
 
 @Module({
-	imports: [PrismaModule, BetterAuthModule.forRoot({ auth }), UtilsModule],
+	imports: [PrismaModule, BetterAuthModule.forRoot({ auth }), UtilsModule, FyQuestModule],
 	controllers: [AppController],
 	providers: [AppService],
 })
