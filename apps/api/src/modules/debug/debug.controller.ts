@@ -2,7 +2,7 @@ import { Controller, Get } from "@nestjs/common";
 import { AllowAnonymous } from "@thallesp/nestjs-better-auth";
 import { DebugService } from "./debug.service";
 
-@Controller("debug")
+@Controller("/debug")
 export class DebugController {
 	constructor(private readonly debugService: DebugService) {}
 
