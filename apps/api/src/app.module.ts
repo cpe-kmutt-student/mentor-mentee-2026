@@ -5,10 +5,23 @@ import { PrismaModule } from "./core/prisma/prisma.module";
 import { AuthModule as BetterAuthModule } from "@thallesp/nestjs-better-auth";
 import { auth } from "@repo/auth/server";
 import { UtilsModule } from "./modules/utils/utils.module";
+import { DebugModule } from "./modules/debug/debug.module";
+import { ServeStaticModule } from "@nestjs/serve-static";
+import path from "node:path";
 import { FyQuestModule } from "./modules/fy-quest/fy-quest.module";
 
 @Module({
-	imports: [PrismaModule, BetterAuthModule.forRoot({ auth }), UtilsModule, FyQuestModule],
+	imports: [
+		PrismaModule,
+		BetterAuthModule.forRoot({ auth }),
+		UtilsModule,
+		DebugModule,
+		ServeStaticModule.forRoot({
+			rootPath: path.join(process.cwd(), "public"),
+			exclude: ["/api/{*path}", "/docs/{*path}", "/{*path}"],
+		}),
+		FyQuestModule,
+	],
 	controllers: [AppController],
 	providers: [AppService],
 })
