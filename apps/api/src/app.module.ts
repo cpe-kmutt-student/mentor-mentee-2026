@@ -18,7 +18,7 @@ import { FyQuestModule } from "./modules/fy-quest/fy-quest.module";
 		DebugModule,
 		ServeStaticModule.forRoot({
 			rootPath: path.join(process.cwd(), "public"),
-			exclude: ["/api/{*path}", "/docs/{*path}", "/{*path}"],
+			exclude: ["/_/{*path}", "/docs/{*path}", "/{*path}"],
 		}),
 		FyQuestModule,
 	],

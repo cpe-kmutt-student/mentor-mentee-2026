@@ -4,7 +4,7 @@ import { AllowAnonymous, type UserSession } from "@thallesp/nestjs-better-auth";
 import { QuestAllow, QuestPeriodGuard } from "./common/guards/quest-period.guard";
 import { Request } from "express";
 
-@Controller()
+@Controller("/")
 export class AppController {
 	constructor(private readonly appService: AppService) {}
 
