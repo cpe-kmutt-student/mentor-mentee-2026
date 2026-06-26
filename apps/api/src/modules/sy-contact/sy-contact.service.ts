@@ -1,5 +1,7 @@
 import { HttpException, Injectable, InternalServerErrorException, Logger } from "@nestjs/common";
 import { PrismaService } from "src/core/prisma/prisma.service";
+import { getPreSignUrl } from "@repo/storage";
+import { config } from "@repo/config";
 
 @Injectable()
 export class SyContactService {
@@ -15,7 +17,14 @@ export class SyContactService {
 				},
 			});
 
-			return getContact;
+			return await Promise.all(
+				getContact.map(async (c) => {
+					return {
+						...c,
+						syuser_profile_url: c.syuser_profile_key ? await getPreSignUrl(config.backend.s3.bucket, "_.jpeg") : null,
+					};
+				}),
+			);
 		} catch (e) {
 			this.logger.error(e);
 			if (e instanceof HttpException) {
