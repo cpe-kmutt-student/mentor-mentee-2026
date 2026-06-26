@@ -38,6 +38,8 @@ const envSchema = z.object({
 	API_S3_ACCESS_KEY: z.string().min(1),
 	API_S3_SECRET_KEY: z.string().min(1),
 	API_S3_BUCKET: z.string().min(1),
+
+	WEB_BETTER_AUTH_URL: z.url(),
 });
 
 const result = envSchema.safeParse(process.env);
@@ -54,7 +56,11 @@ export type Env = z.infer<typeof envSchema>;
 
 export const config = {
 	nodeEnv: env.NODE_ENV,
-	frontend: {},
+	frontend: {
+		betterAuth: {
+			baseUrl: env.WEB_BETTER_AUTH_URL,
+		},
+	},
 	backend: {
 		port: parsedEnv.API_PORT,
 		databaseUrl: parsedEnv.API_DATABASE_URL,
