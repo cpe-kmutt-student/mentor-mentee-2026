@@ -53,6 +53,7 @@ model SecondYearUser {
   syuser_firstname  String                @db.VarChar(50)
   syuser_lastname   String                @db.VarChar(50)
   syuser_email      String?               @db.VarChar(50)
+  syuser_profile_key  String? 
 
   sycontact         SecondYearContact[]
 

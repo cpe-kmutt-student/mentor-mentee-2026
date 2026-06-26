@@ -10,6 +10,7 @@ import { ServeStaticModule } from "@nestjs/serve-static";
 import path from "node:path";
 import { FyQuestModule } from "./modules/fy-quest/fy-quest.module";
 import { FyAccountModule } from "./modules/fy-account/fy-account.module";
+import { SyContactModule } from "./modules/sy-contact/sy-contact.module";
 
 @Module({
 	imports: [
@@ -23,6 +24,7 @@ import { FyAccountModule } from "./modules/fy-account/fy-account.module";
 		}),
 		FyQuestModule,
 		FyAccountModule,
+		SyContactModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],
