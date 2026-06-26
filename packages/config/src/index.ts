@@ -32,6 +32,12 @@ const envSchema = z.object({
 	API_QUEST_1_PERIOD_START: envDate,
 	API_QUEST_2_PERIOD_START: envDate,
 	API_QUEST_3_PERIOD_START: envDate,
+
+	API_S3_REGION: z.string(),
+	API_S3_ENDPOINT: z.url(),
+	API_S3_ACCESS_KEY: z.string().min(1),
+	API_S3_SECRET_KEY: z.string().min(1),
+	API_S3_BUCKET: z.string().min(1),
 });
 
 const result = envSchema.safeParse(process.env);
@@ -80,6 +86,13 @@ export const config = {
 				bypass: env.API_QUEST_3_PERIOD_BYPASS,
 				startDate: env.API_QUEST_3_PERIOD_START,
 			},
+		},
+		s3: {
+			region: env.API_S3_REGION,
+			endpoint: env.API_S3_ENDPOINT,
+			accessKey: env.API_S3_ACCESS_KEY,
+			secretKey: env.API_S3_SECRET_KEY,
+			bucket: env.API_S3_BUCKET,
 		},
 	},
 } as const;

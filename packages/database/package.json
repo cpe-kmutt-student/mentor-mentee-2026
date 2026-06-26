@@ -10,6 +10,7 @@
 		}
 	},
 	"scripts": {
+		"clean": "rimraf dist",
 		"db:migrate:deploy": "prisma migrate deploy",
 		"db:migrate:dev": "prisma migrate dev && prisma generate",
 		"db:push": "prisma db push",
