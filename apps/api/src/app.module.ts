@@ -9,6 +9,7 @@ import { DebugModule } from "./modules/debug/debug.module";
 import { ServeStaticModule } from "@nestjs/serve-static";
 import path from "node:path";
 import { FyQuestModule } from "./modules/fy-quest/fy-quest.module";
+import { FyAccountModule } from "./modules/fy-account/fy-account.module";
 
 @Module({
 	imports: [
@@ -21,6 +22,7 @@ import { FyQuestModule } from "./modules/fy-quest/fy-quest.module";
 			exclude: ["/_/{*path}", "/docs/{*path}", "/{*path}"],
 		}),
 		FyQuestModule,
+		FyAccountModule,
 	],
 	controllers: [AppController],
 	providers: [AppService],
