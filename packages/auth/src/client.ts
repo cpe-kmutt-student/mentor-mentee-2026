@@ -5,4 +5,4 @@ export const authClient = createAuthClient({
 	baseURL: config.frontend.betterAuth.baseUrl,
 });
 
-export const { signIn, signUp, signOut, useSession } = authClient;
+export const { signIn, signUp, signOut, useSession, getSession } = authClient;
