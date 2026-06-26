@@ -22,12 +22,22 @@ const envSchema = z.object({
 	API_AUTH_MICROSOFT_CLIENT_ID: z.string().min(1),
 	API_AUTH_MICROSOFT_CLIENT_SECRET: z.string().min(1),
 	API_AUTH_MICROSOFT_TENANT_ID: z.string().min(1),
+
+	API_LAUNCH_PERIOD_BYPASS: envBoolean,
+	API_LAUNCH_PERIOD_START: envDate,
+
+	API_QUEST_1_PERIOD_BYPASS: envBoolean,
+	API_QUEST_2_PERIOD_BYPASS: envBoolean,
+	API_QUEST_3_PERIOD_BYPASS: envBoolean,
+	API_QUEST_1_PERIOD_START: envDate,
+	API_QUEST_2_PERIOD_START: envDate,
+	API_QUEST_3_PERIOD_START: envDate,
 });
 
 const result = envSchema.safeParse(process.env);
 
 if (!result.success) {
-	console.error(result.error.flatten());
+	console.error(z.flattenError(result.error).fieldErrors);
 	process.exit(1);
 }
 
@@ -51,6 +61,24 @@ export const config = {
 				clientId: env.API_AUTH_MICROSOFT_CLIENT_ID,
 				clientSecret: env.API_AUTH_MICROSOFT_CLIENT_SECRET,
 				tenantId: env.API_AUTH_MICROSOFT_TENANT_ID,
+			},
+		},
+		period: {
+			launch: {
+				bypass: env.API_LAUNCH_PERIOD_BYPASS,
+				startDate: env.API_LAUNCH_PERIOD_START,
+			},
+			quest1: {
+				bypass: env.API_QUEST_1_PERIOD_BYPASS,
+				startDate: env.API_QUEST_1_PERIOD_START,
+			},
+			quest2: {
+				bypass: env.API_QUEST_2_PERIOD_BYPASS,
+				startDate: env.API_QUEST_2_PERIOD_START,
+			},
+			quest3: {
+				bypass: env.API_QUEST_3_PERIOD_BYPASS,
+				startDate: env.API_QUEST_3_PERIOD_START,
 			},
 		},
 	},
