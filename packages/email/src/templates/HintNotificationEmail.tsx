@@ -58,7 +58,7 @@ export default function NewHintEmail({
 						{/* Body */}
 						<Section className="px-8 pb-10 ">
 							<Text className="text-lg leading-8 text-black">
-								สวัสดีคับบ น้อง......<strong>{menteeName}</strong> 👋
+								สวัสดีคับบ น้อง<strong>{menteeName}</strong> 👋
 							</Text>
 
 							<Text className="mt-4 text-base leading-8 text-black">
@@ -78,7 +78,7 @@ export default function NewHintEmail({
 								</Text>
 
 								<Text className="mt-6 text-lg font-bold italic leading-10 text-black">
-									"{hint}"asdasdasdsa
+									"{hint}"
 								</Text>
 							</Section>
 
@@ -113,9 +113,9 @@ export default function NewHintEmail({
 							</Text>
 
 							<Section className="mt-6 text-xs text-black flex flex-col items-center">
-								<Text>อีเมลฉบับนี้ได้ถูกส่งโดยเอเลี่ยน</Text>
+								<Text>อีเมลฉบับนี้ได้ถูกส่งโดยมนุษย์</Text>
 								<Text className="mt-[-15px]">
-									โปรดอย่าตอบกลับเพราะเอเลี่ยนไม่เข้าใจภาษาของมนุษย์ 👽
+									โปรดอย่าตอบกลับเพราะมนุษย์ไม่เข้าใจภาษาของโปรแกรมเมอร์ 🧑‍💻
 								</Text>
 							</Section>
 						</Section>
