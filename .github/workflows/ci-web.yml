@@ -4,6 +4,7 @@ on:
   push:
     branches:
       - main
+      - backend/feat/docker-setup
   workflow_dispatch:
 
 env:
