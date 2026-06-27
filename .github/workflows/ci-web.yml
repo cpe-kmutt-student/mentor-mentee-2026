@@ -28,17 +28,17 @@ jobs:
         uses: docker/login-action@v3
         with:
           registry: ${{ env.REGISTRY }}
-          username: ${{ github.actor }}
+          username: imjustnon
           password: ${{ secrets.GH_PAT }}
 
-      - name: Set lower case repository name
-        run: echo "REPO=${GITHUB_REPOSITORY,,}" >> ${GITHUB_ENV}
+      - name: Set lower case actor name
+        run: echo "ACTOR=${GITHUB_ACTOR,,}" >> ${GITHUB_ENV}
 
       - name: Extract metadata (tags, labels) for Web
         id: meta-web
         uses: docker/metadata-action@v5
         with:
-          images: ${{ env.REGISTRY }}/${{ env.REPO }}-web
+          images: ${{ env.REGISTRY }}/${{ env.ACTOR }}/mentor-mentee-web
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
             type=sha,prefix=,format=short
