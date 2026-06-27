@@ -1,17 +1,16 @@
-name: Build and Push Docker Images
+name: CI API
 
 on:
   push:
     branches:
       - main
-      - backend/feat/docker-setup
   workflow_dispatch:
 
 env:
   REGISTRY: ghcr.io
 
 jobs:
-  build-and-push:
+  build-api:
     runs-on: ubuntu-latest
     permissions:
       contents: read
@@ -48,23 +47,3 @@ jobs:
           push: true
           tags: ${{ steps.meta-api.outputs.tags }}
           labels: ${{ steps.meta-api.outputs.labels }}
-
-      - name: Extract metadata (tags, labels) for Web
-        id: meta-web
-        uses: docker/metadata-action@v5
-        with:
-          images: ${{ env.REGISTRY }}/${{ github.repository }}-web
-          tags: |
-            type=raw,value=latest,enable={{is_default_branch}}
-            type=sha,prefix=,format=short
-
-      - name: Build and push Web Image
-        uses: docker/build-push-action@v5
-        with:
-          context: .
-          file: apps/web/Dockerfile
-          push: true
-          tags: ${{ steps.meta-web.outputs.tags }}
-          labels: ${{ steps.meta-web.outputs.labels }}
-
-      
