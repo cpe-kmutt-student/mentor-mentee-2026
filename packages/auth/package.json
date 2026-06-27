@@ -21,8 +21,8 @@
 	},
 	"dependencies": {
 		"better-auth": "^1.6.20",
-		"@repo/database": "workspace:*",
-		"@repo/config": "workspace:*"
+		"@repo/config": "workspace:*",
+		"@repo/database": "workspace:*"
 	},
 	"devDependencies": {
 		"@repo/eslint-config": "workspace:*",
