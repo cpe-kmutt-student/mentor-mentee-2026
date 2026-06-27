@@ -11,6 +11,8 @@ import path from "node:path";
 import { FyQuestModule } from "./modules/fy-quest/fy-quest.module";
 import { FyAccountModule } from "./modules/fy-account/fy-account.module";
 import { SyContactModule } from "./modules/sy-contact/sy-contact.module";
+import { FyHintScheduleModule } from "./modules/fy-hint-schedule/fy-hint-schedule.module";
+import { ScheduleModule } from "@nestjs/schedule";
 
 @Module({
 	imports: [
@@ -25,6 +27,8 @@ import { SyContactModule } from "./modules/sy-contact/sy-contact.module";
 		FyQuestModule,
 		FyAccountModule,
 		SyContactModule,
+		FyHintScheduleModule,
+		ScheduleModule.forRoot(),
 	],
 	controllers: [AppController],
 	providers: [AppService],

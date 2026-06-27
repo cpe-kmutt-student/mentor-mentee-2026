@@ -36,6 +36,9 @@
 		"generate": {
 			"dependsOn": ["^generate"],
 			"cache": false
+		},
+		"email:dev": {
+			"cache": false
 		}
 	}
 }
