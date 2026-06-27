@@ -17,7 +17,8 @@
 		"lint": "turbo run lint",
 		"format": "prettier --write \"**/*.{ts,tsx,md}\"",
 		"check-types": "turbo run check-types",
-		"prepare": "husky"
+		"prepare": "husky",
+		"email:dev": "turbo run email:dev"
 	},
 	"devDependencies": {
 		"@biomejs/biome": "2.5.1",
