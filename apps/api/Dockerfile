@@ -17,6 +17,7 @@ RUN pnpm --filter @repo/database run generate
 RUN pnpm --filter @repo/database run build
 RUN pnpm --filter @repo/auth run build
 RUN pnpm --filter @repo/storage run build
+RUN pnpm --filter @repo/email run build
 RUN pnpm --filter api run build
 
 FROM node:22-alpine AS runner
