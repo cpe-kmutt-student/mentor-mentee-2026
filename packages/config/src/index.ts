@@ -40,6 +40,12 @@ const envSchema = z.object({
 	API_S3_BUCKET: z.string().min(1),
 
 	WEB_BETTER_AUTH_URL: z.url(),
+
+	API_EMAIL_HOST: z.string().min(1),
+	API_EMAIL_PORT: envPort,
+	API_EMAIL_USER: z.email(),
+	API_EMAIL_PASS: z.string().min(1),
+	API_EMAIL_FROM: z.string().min(1),
 });
 
 const result = envSchema.safeParse(process.env);
@@ -99,6 +105,14 @@ export const config = {
 			accessKey: env.API_S3_ACCESS_KEY,
 			secretKey: env.API_S3_SECRET_KEY,
 			bucket: env.API_S3_BUCKET,
+		},
+		email: {
+			host: env.API_EMAIL_HOST,
+			port: env.API_EMAIL_PORT,
+			user: env.API_EMAIL_USER,
+			password: env.API_EMAIL_PASS,
+			secure: false,
+			from: env.API_EMAIL_FROM,
 		},
 	},
 } as const;
