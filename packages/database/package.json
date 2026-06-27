@@ -16,7 +16,7 @@
 		"db:push": "prisma db push",
 		"db:seed": "tsx src/seed.ts",
 		"dev": "tsup src/* --watch --dts --external ../generated/client",
-		"build": "pnpm generate && tsc",
+		"build": "tsc",
 		"format": "prisma format",
 		"generate": "prisma generate",
 		"lint": "eslint . --max-warnings 0",
