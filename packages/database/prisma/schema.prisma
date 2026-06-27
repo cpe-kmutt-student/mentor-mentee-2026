@@ -50,6 +50,7 @@ model FirstYearQuest {
 model SecondYearUser {
   syuser_uuid       String                @id @default(uuid())
   syuser_id         String                @unique
+  syuser_nickname   String                @db.VarChar(50)
   syuser_firstname  String                @db.VarChar(50)
   syuser_lastname   String                @db.VarChar(50)
   syuser_email      String?               @db.VarChar(50)
