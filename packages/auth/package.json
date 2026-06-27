@@ -20,11 +20,11 @@
 		"check-types": "tsc --noEmit"
 	},
 	"dependencies": {
-		"better-auth": "^1.6.20"
+		"better-auth": "^1.6.20",
+		"@repo/database": "workspace:*",
+		"@repo/config": "workspace:*"
 	},
 	"devDependencies": {
-		"@repo/database": "workspace:*",
-		"@repo/config": "workspace:*",
 		"@repo/eslint-config": "workspace:*",
 		"@repo/typescript-config": "workspace:*",
 		"@types/node": "^26.0.0",
