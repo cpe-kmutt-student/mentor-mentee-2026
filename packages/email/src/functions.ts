@@ -2,7 +2,11 @@ import { render } from "@react-email/render";
 import { sender } from "./sender";
 import HintNotificationEmail from "./templates/HintNotificationEmail";
 
-export async function sendHintNotification(name: string, hint: string) {
+export async function sendHintNotification(
+	email: string,
+	name: string,
+	hint: string,
+) {
 	try {
 		const html = await render(
 			HintNotificationEmail({
@@ -11,11 +15,7 @@ export async function sendHintNotification(name: string, hint: string) {
 				url: "https://comcamp.io",
 			}),
 		);
-		return await sender(
-			"non.kanakorn@gmail.com",
-			"ประกาศผลการคัดเลือก ComCamp 37",
-			html,
-		);
+		return await sender(email, "🔍 ใบ้ใหม่จากพี่รหัสมาเเล้ว มาตามหาพี่ๆ กันเถอะ", html);
 	} catch (e) {
 		console.log("Send email error: ", e);
 	}
