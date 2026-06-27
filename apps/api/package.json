@@ -29,6 +29,7 @@
 		"@repo/config": "workspace:*",
 		"@repo/database": "workspace:*",
 		"@repo/storage": "workspace:*",
+		"@repo/email": "workspace:*",
 		"@thallesp/nestjs-better-auth": "^2.6.1",
 		"axios": "^1.18.1",
 		"body-parser": "^2.3.0",
