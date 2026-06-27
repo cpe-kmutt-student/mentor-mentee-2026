@@ -15,6 +15,10 @@ export class SyContactService {
 				include: {
 					sycontact: true,
 				},
+				omit: {
+					syuser_email: true,
+					syuser_id: true,
+				},
 			});
 
 			return await Promise.all(
