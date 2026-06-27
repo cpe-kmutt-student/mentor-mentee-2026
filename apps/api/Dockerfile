@@ -10,12 +10,14 @@ COPY packages ./packages
 
 RUN pnpm install --frozen-lockfile
 
-# Build the environment package and API
-RUN pnpm --filter @repo/config build
-RUN pnpm --filter @repo/database build
-RUN pnpm --filter @repo/auth build
-RUN pnpm --filter @repo/storage build
-RUN pnpm --filter api build
+# Build the environment 
+# will move to entrypoint package and API
+RUN pnpm --filter @repo/config run build
+RUN pnpm --filter @repo/database run build
+RUN pnpm --filter @repo/database run generate
+RUN pnpm --filter @repo/auth run build
+RUN pnpm --filter @repo/storage run build
+RUN pnpm --filter api run build
 
 FROM node:22-alpine AS runner
 WORKDIR /app

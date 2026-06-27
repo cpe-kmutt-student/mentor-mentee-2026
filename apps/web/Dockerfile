@@ -10,12 +10,8 @@ COPY packages ./packages
 
 RUN pnpm install --frozen-lockfile
 
-
-RUN pnpm --filter @repo/config build
-RUN pnpm --filter @repo/database build
-RUN pnpm --filter @repo/auth build
-RUN pnpm --filter @repo/storage build
 RUN pnpm --filter web build
+RUN pnpm --filter @repo/auth build
 
 
 
