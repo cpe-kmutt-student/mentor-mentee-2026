@@ -41,8 +41,9 @@ jobs:
           images: ${{ env.REGISTRY }}/${{ env.ACTOR }}/mentor-mentee-web
           tags: |
             type=raw,value=latest,enable={{is_default_branch}}
+            type=ref,event=branch
             type=sha,prefix=,format=short
-
+            
       - name: Build and push Web Image
         uses: docker/build-push-action@v5
         with:
