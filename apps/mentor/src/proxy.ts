@@ -1,4 +1,3 @@
-import { authClient } from "@repo/auth/client";
 import { config as appConfig } from "@repo/config";
 import { headers } from "next/headers";
 import type { NextRequest } from "next/server";
