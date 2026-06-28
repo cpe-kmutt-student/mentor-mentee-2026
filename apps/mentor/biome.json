@@ -1,0 +1,17 @@
+{
+	"root": false,
+	"$schema": "../../biome.json",
+	"linter": {
+		"rules": {
+			"correctness": {
+				"noUnusedImports": "off"
+			},
+			"suspicious": {
+				"noUnknownAtRules": "off"
+			},
+			"complexity": {
+				"noUselessFragments": "off"
+			}
+		}
+	}
+}
