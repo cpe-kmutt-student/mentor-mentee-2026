@@ -14,7 +14,7 @@
 		"db:migrate:deploy": "prisma migrate deploy",
 		"db:migrate:dev": "prisma migrate dev && prisma generate",
 		"db:push": "prisma db push",
-		"db:seed": "tsx src/seed.ts",
+		"db:seed": "prisma db seed",
 		"dev": "tsup src/* --watch --dts --external ../generated/client",
 		"build": "tsc",
 		"format": "prisma format",
