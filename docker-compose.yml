@@ -58,7 +58,7 @@ services:
 
   api:
     <<: *defaults
-    image: ghcr.io/imjustnon/mentor-mentee-api:backend-feat-docker-setup
+    image: ghcr.io/imjustnon/mentor-mentee-api:merge-backend
     expose:
       - "3000"
     labels:
@@ -72,7 +72,7 @@ services:
 
   web:
     <<: *defaults
-    image: ghcr.io/imjustnon/mentor-mentee-web:backend-feat-docker-setup
+    image: ghcr.io/imjustnon/mentor-mentee-web:merge-backend
     expose:
       - "3000"
     depends_on:
