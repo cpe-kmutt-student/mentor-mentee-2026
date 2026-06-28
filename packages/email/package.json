@@ -14,7 +14,7 @@
 		"dev": "tsup src/* --dts --watch",
 		"lint": "eslint . --max-warnings 0",
 		"check-types": "tsc --noEmit",
-		"email:dev": "email dev -d src/templates"
+		"email:dev": "email dev -d src/templates -p 3020"
 	},
 	"dependencies": {
 		"@react-email/components": "^1.0.12",
