@@ -3,6 +3,9 @@
 	"$schema": "../../biome.json",
 	"linter": {
 		"rules": {
+			"a11y": {
+				"useKeyWithClickEvents": "off"
+			},
 			"correctness": {
 				"noUnusedImports": "off",
 				"noUnusedVariables": "off"
