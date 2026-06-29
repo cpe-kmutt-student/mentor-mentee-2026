@@ -77,8 +77,7 @@ export default function ProfilePage(): React.JSX.Element {
 									className="hidden"
 									onChange={handleFileChange}
 								/>
-								<button
-									type="button"
+								<div
 									className="w-28 h-28 bg-[#E6E9EE] rounded-full hover:bg-[#bbbbbb] duration-300 flex flex-col justify-center items-center cursor-pointer group"
 									onClick={() => handleUploadClick()}
 								>
@@ -88,7 +87,7 @@ export default function ProfilePage(): React.JSX.Element {
 											"opacity-100": !isProfileAvailable,
 										})}
 									/>
-								</button>
+								</div>
 								<button
 									type="button"
 									className="border px-12 py-1 mt-3 rounded-full hover:bg-[#CAF0F8] hover:shadow-md duration-300 hover:px-6 active:scale-[.97] text-sm font-semibold"
