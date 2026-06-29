@@ -4,7 +4,8 @@
 	"linter": {
 		"rules": {
 			"correctness": {
-				"noUnusedImports": "off"
+				"noUnusedImports": "off",
+				"noUnusedVariables": "off"
 			},
 			"suspicious": {
 				"noUnknownAtRules": "off"
