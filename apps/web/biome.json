@@ -1,0 +1,9 @@
+{
+	"root": false,
+	"$schema": "../../biome.json",
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	}
+}
