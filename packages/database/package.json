@@ -7,6 +7,10 @@
 		".": {
 			"types": "./dist/client.d.ts",
 			"default": "./dist/client.js"
+		},
+		"./prisma": {
+			"types": "./dist/prisma.d.ts",
+			"default": "./dist/prisma.js"
 		}
 	},
 	"scripts": {
