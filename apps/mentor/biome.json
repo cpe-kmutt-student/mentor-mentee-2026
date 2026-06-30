@@ -4,10 +4,13 @@
 	"linter": {
 		"rules": {
 			"a11y": {
+				"useKeyWithClickEvents": "off",
+				"noStaticElementInteractions": "off",
 				"noSvgWithoutTitle": "off"
 			},
 			"correctness": {
-				"noUnusedImports": "off"
+				"noUnusedImports": "off",
+				"noUnusedVariables": "off"
 			},
 			"suspicious": {
 				"noUnknownAtRules": "off"

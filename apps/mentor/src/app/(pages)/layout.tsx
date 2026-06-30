@@ -5,7 +5,7 @@ export default function PageLayout({
 }: Readonly<{ children: React.ReactNode }>): React.JSX.Element {
 	return (
 		<>
-			<div className="bg-white min-h-screen">{children}</div>
+			<div className="bg-[#f5fbfc] min-h-screen">{children}</div>
 		</>
 	);
 }
