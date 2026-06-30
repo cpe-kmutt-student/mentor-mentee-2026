@@ -1,26 +1,113 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+	--background: #ffffff;
+	--foreground: #171717;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+	--color-background: var(--background);
+	--color-foreground: var(--foreground);
+	--font-sans: var(--font-geist-sans);
+	--font-mono: var(--font-geist-mono);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+	--font-mali: var(--font-mali);
+	--font-prompt: var(--font-prompt);
+	--font-comic-relief: var(--font-comic-relief);
+
+	--color-light-cyan-50: hsl(189 76.9% 94.9%);
+	--color-light-cyan-100: hsl(189.2 76.5% 90%);
+	--color-light-cyan-200: hsl(190 76.5% 80%);
+	--color-light-cyan-300: hsl(189.7 76.5% 70%);
+	--color-light-cyan-400: hsl(190.3 77.5% 60%);
+	--color-light-cyan-500: hsl(190.1 77.3% 50%);
+	--color-light-cyan-600: hsl(190.3 77.5% 40%);
+	--color-light-cyan-700: hsl(189.7 76.5% 30%);
+	--color-light-cyan-800: hsl(190 76.5% 20%);
+	--color-light-cyan-900: hsl(189.2 76.5% 10%);
+	--color-light-cyan-950: hsl(190.7 77.8% 7.1%);
+
+	--color-frosted-blue-50: hsl(189.5 76% 95.1%);
+	--color-frosted-blue-100: hsl(189.2 76.5% 90%);
+	--color-frosted-blue-200: hsl(188.7 74.5% 80%);
+	--color-frosted-blue-300: hsl(188.9 75.2% 70%);
+	--color-frosted-blue-400: hsl(189 75.5% 60%);
+	--color-frosted-blue-500: hsl(189.1 74.9% 50%);
+	--color-frosted-blue-600: hsl(189 75.5% 40%);
+	--color-frosted-blue-700: hsl(188.9 75.2% 30%);
+	--color-frosted-blue-800: hsl(188.7 74.5% 20%);
+	--color-frosted-blue-900: hsl(189.2 76.5% 10%);
+	--color-frosted-blue-950: hsl(188.9 77.1% 6.9%);
+
+	--color-turquoise-surf-50: hsl(189.2 100% 94.9%);
+	--color-turquoise-surf-100: hsl(190.6 100% 90%);
+	--color-turquoise-surf-200: hsl(190 100% 80%);
+	--color-turquoise-surf-300: hsl(190.2 100% 70%);
+	--color-turquoise-surf-400: hsl(190 100% 60%);
+	--color-turquoise-surf-500: hsl(190.1 100% 50%);
+	--color-turquoise-surf-600: hsl(190 100% 40%);
+	--color-turquoise-surf-700: hsl(190.2 100% 30%);
+	--color-turquoise-surf-800: hsl(190 100% 20%);
+	--color-turquoise-surf-900: hsl(190.6 100% 10%);
+	--color-turquoise-surf-950: hsl(190 100% 7.1%);
+
+	--color-bright-teal-blue-50: hsl(200.8 100% 94.9%);
+	--color-bright-teal-blue-100: hsl(201.2 100% 90%);
+	--color-bright-teal-blue-200: hsl(201.2 100% 80%);
+	--color-bright-teal-blue-300: hsl(201.2 100% 70%);
+	--color-bright-teal-blue-400: hsl(200.9 100% 60%);
+	--color-bright-teal-blue-500: hsl(200.9 100% 50%);
+	--color-bright-teal-blue-600: hsl(200.9 100% 40%);
+	--color-bright-teal-blue-700: hsl(201.2 100% 30%);
+	--color-bright-teal-blue-800: hsl(201.2 100% 20%);
+	--color-bright-teal-blue-900: hsl(201.2 100% 10%);
+	--color-bright-teal-blue-950: hsl(201.7 100% 7.1%);
+
+	--color-deep-twilight-50: hsl(237.5 92.3% 94.9%);
+	--color-deep-twilight-100: hsl(240 92.2% 90%);
+	--color-deep-twilight-200: hsl(238.8 94.1% 80%);
+	--color-deep-twilight-300: hsl(239.2 93.5% 70%);
+	--color-deep-twilight-400: hsl(239.1 94.1% 60%);
+	--color-deep-twilight-500: hsl(239 93.7% 50%);
+	--color-deep-twilight-600: hsl(239.1 94.1% 40%);
+	--color-deep-twilight-700: hsl(239.2 93.5% 30%);
+	--color-deep-twilight-800: hsl(238.8 94.1% 20%);
+	--color-deep-twilight-900: hsl(240 92.2% 10%);
+	--color-deep-twilight-950: hsl(238.2 94.4% 7.1%);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+	background: var(--background);
+	color: var(--foreground);
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.random-sticker {
+	position: fixed;
+	z-index: 1;
+	padding: 8px 12px;
+	font-family: "Comic Relief", system-ui;
+	font-size: 14px;
+	font-weight: 800;
+	pointer-events: none;
+	animation: fade-in-out 3s ease-in-out forwards;
+}
+
+@keyframes fade-in-out {
+	0% {
+		opacity: 0;
+		transform: scale(0.5) rotate(-10deg);
+	}
+	5% {
+		opacity: 1;
+		transform: scale(1) rotate(5deg);
+	} /* โผล่มาที่ 20% ของเวลา */
+	95% {
+		opacity: 1;
+		transform: scale(1) rotate(5deg);
+	} /* ค้างไว้ */
+	100% {
+		opacity: 0;
+		transform: scale(0.5) rotate(-10deg);
+	} /* หายไปที่ 100% */
 }
